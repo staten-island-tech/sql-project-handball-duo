@@ -1,13 +1,9 @@
-
 <script>
 export default {
-  name: 'Account',
+  name: 'Account'
 }
-
-
 </script>
 <script setup>
-
 import { onMounted, ref, toRefs } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 
@@ -58,7 +54,7 @@ async function updateProfile() {
       username: username.value,
       website: website.value,
       avatar_url: avatar_url.value,
-      updated_at: new Date(),
+      updated_at: new Date()
     }
 
     let { error } = await supabase.from('profiles').upsert(updates)
