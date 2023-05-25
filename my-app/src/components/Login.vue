@@ -30,6 +30,7 @@
     </div>
   </div>
 </form>
+<RouterLink to="/register">Register</RouterLink>
 </template>
 <script setup>
 import { ref } from 'vue'
