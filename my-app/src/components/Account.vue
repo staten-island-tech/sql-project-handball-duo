@@ -1,8 +1,4 @@
-<script>
-export default {
-  name: 'StartPage'
-}
-</script>
+
 <script setup>
 import { onMounted, ref, toRefs } from 'vue'
 import { supabase } from '../lib/supabaseClient'

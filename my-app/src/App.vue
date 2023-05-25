@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import StartPage from './views/AboutView.vue'
 import BeforePage from './views/HomeView.vue'
+
 import { supabase } from '../src/lib/supabaseClient'
 
 const session = ref()
