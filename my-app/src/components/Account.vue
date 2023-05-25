@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'Account'
+  name: 'StartPage'
 }
 </script>
 <script setup>
