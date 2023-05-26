@@ -93,3 +93,7 @@ const handleRegister = async () => {
   }
 }
 </script>
+
+<style>
+
+</style>
