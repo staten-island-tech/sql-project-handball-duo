@@ -20,7 +20,7 @@ onMounted(() => {
 
 <template>
   <div class="container" style="padding: 50px 0 100px 0">
-    <StartPage :userId="userId" v-if="session" :session="session" />
+    <StartPage  :userId="userId" v-if="session" :session="session" />
     <BeforePage v-else />
   </div>
 </template> 

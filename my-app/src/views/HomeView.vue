@@ -10,8 +10,9 @@ import Login from '../components/Login.vue'
 </script>
 
 <template>
+<h1>Start Up Page</h1>
   <RouterView/>
-<h1>hio</h1>
+
 <RouterLink to="/login">Login</RouterLink>
 <RouterLink to="/Register">Register</RouterLink>
 </template>

@@ -24,7 +24,7 @@
       </div>
     </div>
   </form>
-  <RouterLink to="/register">Register</RouterLink>
+
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -38,12 +38,13 @@ const handleLogin = async () => {
   console.log(logPassword.value)
   try {
     loadLogin.value = true
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: logEmail.value,
       password: logPassword.value
     })
     if (error) {
       console.log(error)
+      console.log(data)
     } else {
       console.log(data)
     }

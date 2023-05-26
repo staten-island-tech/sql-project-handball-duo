@@ -42,7 +42,7 @@
       </div>
     </form>
 
-    <RouterLink to="/login">Login</RouterLink>
+
   </div>
 </template>
 
