@@ -95,5 +95,45 @@ const handleRegister = async () => {
 </script>
 
 <style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.form-widget {
+  max-width: 200px;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+  background-color: #ffffff;
+}
+
+.inputField {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4B9CD3;
+  color: #ffffff;
+  cursor: pointer;
+}
 
 </style>

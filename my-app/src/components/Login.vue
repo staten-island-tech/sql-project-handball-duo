@@ -53,3 +53,44 @@ const handleLogin = async () => {
   }
 }
 </script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+
+.header {
+  text-align: center;
+  margin-top: 0;
+}
+
+.inputField {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4B9CD3;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+</style>
