@@ -54,7 +54,7 @@ const handleLogin = async () => {
 }
 </script>
 
-<style>
+<style >
 body {
   font-family: Arial, sans-serif;
 }

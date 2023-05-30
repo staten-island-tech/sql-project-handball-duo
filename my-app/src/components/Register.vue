@@ -94,7 +94,7 @@ const handleRegister = async () => {
 }
 </script>
 
-<style>
+<style >
 body {
   font-family: Arial, sans-serif;
 }
