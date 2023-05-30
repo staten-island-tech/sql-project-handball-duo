@@ -24,8 +24,8 @@ async function getProfile() {
     const { user } = session.value
 
     let { data, error, status } = await supabase
-      .from('profiles')
-      .select(`username, website, avatar_url`)
+      .from('cards')
+      .select(`name, about`)
       .eq('id', user.id)
       .single()
 

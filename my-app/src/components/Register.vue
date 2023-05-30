@@ -83,9 +83,14 @@ const handleRegister = async () => {
         // Insert the user's email and username into the users table
         await supabase
           .from('profiles')
-          .insert([{ email: regEmail.value, username: regUser.value, password: regPass.value }])
+          .insert([{ email: regEmail.value, username: regUser.value, password: regPass.value }])  
+          await supabase
+          .from('cards')
+        .insert([{email: regEmail.value}])
 
         alert('Please check your email for confirmation.')
+        await supabase
+        
       }
     }
   } finally {
