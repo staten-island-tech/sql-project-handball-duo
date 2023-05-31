@@ -1,9 +1,5 @@
-<script>
-
-</script>
-
 <script setup>
-import { onMounted, ref, toRefs } from 'vue'
+import { ref, toRefs } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 
 const props = defineProps(['session'])
@@ -13,35 +9,6 @@ const loading = ref(true)
 const username = ref('')
 const website = ref('')
 const avatar_url = ref('')
-
-onMounted(() => {
-  getProfile()
-})
-
-async function getProfile() {
-  try {
-    loading.value = true
-    const { user } = session.value
-
-    let { data, error, status } = await supabase
-      .from('profiles')
-      .select(`username, website, avatar_url`)
-      .eq('id', user.id)
-      .single()
-
-    if (error && status !== 406) throw error
-
-    if (data) {
-      username.value = data.username
-      website.value = data.website
-      avatar_url.value = data.avatar_url
-    }
-  } catch (error) {
-    alert(error.message)
-  } finally {
-    loading.value = false
-  }
-}
 
 async function updateProfile() {
   try {
@@ -58,18 +25,6 @@ async function updateProfile() {
 
     let { error } = await supabase.from('profiles').upsert(updates)
 
-    if (error) throw error
-  } catch (error) {
-    alert(error.message)
-  } finally {
-    loading.value = false
-  }
-}
-
-async function signOut() {
-  try {
-    loading.value = true
-    let { error } = await supabase.auth.signOut()
     if (error) throw error
   } catch (error) {
     alert(error.message)
@@ -101,10 +56,6 @@ async function signOut() {
         :value="loading ? 'Loading ...' : 'Update'"
         :disabled="loading"
       />
-    </div>
-
-    <div>
-      <button class="button block" @click="signOut" :disabled="loading">Sign Out</button>
     </div>
   </form>
 </template>
