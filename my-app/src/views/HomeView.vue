@@ -13,8 +13,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView/>
 <div class="register">
 <RouterLink to="/login" class="button">Login</RouterLink>
-</div>
-<div class="login">
+
 <RouterLink to="/Register" class="button">Register</RouterLink>
 </div>
 </template>

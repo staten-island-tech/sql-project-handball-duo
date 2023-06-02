@@ -1,13 +1,21 @@
-<template>
-    <div>
-<h1>hi</h1>
-    </div>
-</template>
-
 <script setup>
+  import { ref, onMounted } from 'vue'
+  import { supabase } from '../lib/supabaseClient'
 
-</script>
+  const cards = ref([])
 
-<style lang="scss" scoped>
+  async function getProfile() {
+    const { data } = await supabase.from('cards').select()
+    cards.value = data
+  }
 
-</style>
+  onMounted(() => {
+    getProfile()
+  })
+  </script>
+
+  <template>
+    <ul>
+      <li v-for="card in cards" :key="card.id">{{ card.username }}</li>
+    </ul>
+  </template>

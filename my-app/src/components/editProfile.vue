@@ -7,9 +7,17 @@ const { session } = toRefs(props)
 
 const loading = ref(true)
 const username = ref('')
-const website = ref('')
-const avatar_url = ref('')
+const aboutMe = ref('')
+const cards = ref([])
 
+async function getProfile() {
+  const { data } = await supabase.from('cards').select()
+  cards.value = data
+}
+
+onMounted(() => {
+  getProfile()
+}) 
 async function updateProfile() {
   try {
     loading.value = true
@@ -18,12 +26,11 @@ async function updateProfile() {
     const updates = {
       id: user.id,
       username: username.value,
-      website: website.value,
-      avatar_url: avatar_url.value,
-      updated_at: new Date()
+      aboutMe: aboutMe.value,
+      updated_at: new Date(),
     }
 
-    let { error } = await supabase.from('profiles').upsert(updates)
+    let { error } = await supabase.from('cards').upsert(updates)
 
     if (error) throw error
   } catch (error) {
@@ -45,8 +52,8 @@ async function updateProfile() {
       <input id="username" type="text" v-model="username" />
     </div>
     <div>
-      <label for="website">Website</label>
-      <input id="website" type="url" v-model="website" />
+      <label for="aboutMe">About Me</label>
+      <input id="aboutMe" type="url" v-model="aboutMe" />
     </div>
 
     <div>
