@@ -1,5 +1,5 @@
-<script setup>
-import { ref, toRefs } from 'vue'
+<!-- <script setup>
+import { onMounted, ref, toRefs } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 
 const props = defineProps(['session'])
@@ -65,4 +65,4 @@ async function updateProfile() {
       />
     </div>
   </form>
-</template>
+</template> -->

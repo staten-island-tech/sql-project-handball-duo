@@ -46,7 +46,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup> 
 import { ref } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 
@@ -61,7 +61,7 @@ const handleRegister = async () => {
   try {
     loadReg.value = true
     // Check if user with the provided email already exists
-    const { data: usersData, error: usersError } = await supabase
+    const { data: usersData, } = await supabase
       .from('profiles')
       .select()
       .eq('email', regEmail.value)

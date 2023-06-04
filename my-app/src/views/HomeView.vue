@@ -4,21 +4,36 @@ export default {
 }
 </script>
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
+import { RouterView } from 'vue-router'
+import {ref} from  'vue'
+import Login from  '../components/LoginPage.vue'
+import Register from  '../components/RegisterPage.vue'
+const changePlease = ref(true)
 </script>
 
 <template>
 <h1>Start Up Page</h1>
   <RouterView/>
-<div class="register">
-<RouterLink to="/login" class="button">Login</RouterLink>
+<Login v-if="changePlease"/>
+<Register v-else />
 
-<RouterLink to="/Register" class="button">Register</RouterLink>
-</div>
+<button class="buttons" @click="changePlease = !changePlease" v-if="changePlease">Change To Register</button>
+<button class="buttons" @click="changePlease = !changePlease" v-else>Change To Login</button>
+
 </template>
 
 <style scoped>
+.buttons{
+  font-size: 2rem;
+  padding: 12px 20px;
+  margin: 0 10px;
+  color: black;
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; 
+}
 h1{
   display: flex;
   flex-direction: column;

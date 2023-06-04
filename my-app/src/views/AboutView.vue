@@ -3,7 +3,7 @@
 <script setup>
 import { onMounted, ref, toRefs } from 'vue'
 import { supabase } from '../lib/supabaseClient'
-
+import allProfiles from '../components/seeProfiles.vue'
 const props = defineProps(['session'])
 const { session } = toRefs(props)
 
@@ -24,7 +24,7 @@ async function getProfile() {
     let { data, error, status } = await supabase
       .from('cards')
       .select(`name, about`)
-      .eq('id', user.id)
+      .eq('id ::text' , user.id)
       .single()
 
     if (error && status !== 406) throw error
@@ -57,6 +57,6 @@ async function signOut() {
 <template>
   <button class="button block" @click="signOut" :disabled="loading">Sign Out</button>
   <RouterView />
-  <RouterLink to="/Profiles" class="button">Profiles</RouterLink>
+<allProfiles/>
   <RouterLink to="/Edit" class="button">Edit</RouterLink>
 </template>
