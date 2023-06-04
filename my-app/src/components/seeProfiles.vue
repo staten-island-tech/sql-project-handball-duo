@@ -6,10 +6,10 @@
 
   async function getProfile() {
     const { data } = await supabase.from('cards').select()
-    cards.value = data
+    cards.value  = data
   }
 
-  onMounted(() => {
+onMounted(() => {  
     getProfile()
   })
 
@@ -17,13 +17,13 @@
   </script> 
 
   <template>
-  <article class="profile" v-for="something in  cards" :key="something.id" :id="something.image" :name="something.name" :instagram="something.instagram" :about="something.about" >
+  <article class="profile" v-for="something in  cards" :key="something.id" :image="something.image" :name="something.name" :instagram="something.instagram" :about="something.about" >
     <div class="profile-image"> 
-      <img v-bind:src="id" alt="Person" />
+      <img v-bind:src="something.image" alt="Person" />
     </div>
-    <h2 class="profile-username">{{name}}</h2>
-    <small class="profile-user-handle">{{instagram}}</small>
-    <p>{{ about }}</p>    
+    <h2 class="profile-username">{{something.name}}</h2>
+    <small class="profile-user-handle">{{something.instagram}}</small>
+    <p>{{ something.about }}</p>    
   </article>
   </template> 
   

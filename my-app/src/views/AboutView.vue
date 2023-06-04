@@ -4,6 +4,7 @@
 import { onMounted, ref, toRefs } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 import allProfiles from '../components/seeProfiles.vue'
+import editProfile from '../components/editProfile.vue'
 const props = defineProps(['session'])
 const { session } = toRefs(props)
 
@@ -52,11 +53,14 @@ async function signOut() {
     loading.value = false
   }
 }
+const gay = ref(true)
 </script>
 
 <template>
   <button class="button block" @click="signOut" :disabled="loading">Sign Out</button>
-  <RouterView />
-<allProfiles/>
-  <RouterLink to="/Edit" class="button">Edit</RouterLink>
+
+<allProfiles v-if="gay"/>
+<editProfile v-else/>
+<button class="buttons" @click="gay = !gay" v-if="gay">Change To Register</button>
+<button class="buttons" @click="gay = !gay" v-else>Change To Login</button>
 </template>

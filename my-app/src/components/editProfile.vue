@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
 import { onMounted, ref, toRefs } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 
@@ -7,7 +7,9 @@ const { session } = toRefs(props)
 
 const loading = ref(true)
 const username = ref('')
-const aboutMe = ref('')
+const about = ref('')
+const instagram = ref('')
+const image = ref('')
 const cards = ref([])
 
 async function getProfile() {
@@ -26,7 +28,9 @@ async function updateProfile() {
     const updates = {
       id: user.id,
       username: username.value,
-      aboutMe: aboutMe.value,
+      about: about.value,
+      instagram: instagram.value,
+      image: image.value,
       updated_at: new Date(),
     }
 
@@ -45,7 +49,7 @@ async function updateProfile() {
   <form class="form-widget" @submit.prevent="updateProfile">
     <div>
       <label for="email">Email</label>
-      <input id="email" type="text" :value="session.user.email" disabled />
+      <input id="email" type="text"  :value="session.user.email" disabled />
     </div>
     <div>
       <label for="username">Name</label>
@@ -60,9 +64,7 @@ async function updateProfile() {
       <input
         type="submit"
         class="button primary block"
-        :value="loading ? 'Loading ...' : 'Update'"
-        :disabled="loading"
       />
     </div>
   </form>
-</template> -->
+</template>
