@@ -1,5 +1,5 @@
 <template>
-  <form class="row flex-center flex" @submit.prevent="handleLogin">
+  <form class="row flex-center flex" @submit.prevent="useProducts.handleLogin(logEmail, logPassword)">
     <div class="col-6 form-widget">
       <h1 class="header">Login</h1>
       <div>
@@ -28,30 +28,16 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { supabase } from '../lib/supabaseClient'
+import { useProductsStore } from '../lib/ProductStore';
+
+const useProducts = useProductsStore()
+
 const loadLogin = ref(false)
 const logEmail = ref('')
 const logPassword = ref('')
 
-const handleLogin = async () => {
-  console.log(logEmail.value)
-  console.log(logPassword.value)
-  try {
-    loadLogin.value = true
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: logEmail.value,
-      password: logPassword.value
-    })
-    if (error) {
-      console.log(error)
-      console.log(data)
-    } else {
-      console.log(data)
-    }
-  } finally {
-    loadLogin.value = false
-  }
-}
+
+
 </script>
 
 <style >

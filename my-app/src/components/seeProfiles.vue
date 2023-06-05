@@ -1,28 +1,24 @@
 <script setup>
-  import { ref, onMounted } from 'vue'
-  import { supabase } from '../lib/supabaseClient'
+  import { onMounted } from 'vue'
+import { useProductsStore}  from '../lib/ProductStore'
 
-  const cards = ref([])
+const useProducts = useProductsStore()
 
-  async function getProfile() {
-    const { data } = await supabase.from('cards').select()
-    cards.value  = data
-  }
 
 onMounted(() => {  
-    getProfile()
+	useProducts.getProfile()
   })
 
-  console.log(cards)
+
   </script> 
 
   <template>
-  <article class="profile" v-for="something in  cards" :key="something.id" :image="something.image" :name="something.name" :instagram="something.instagram" :about="something.about" >
+  <article class="profile" v-for="something in  useProducts.cards" :key="something.id" :image="something.image" :name="something.name" :instagram="something.instagram" :about="something.about" >
     <div class="profile-image"> 
       <img v-bind:src="something.image" alt="Person" />
     </div>
     <h2 class="profile-username">{{something.name}}</h2>
-    <small class="profile-user-handle">{{something.instagram}}</small>
+    <small class="profile-user-handle">@{{something.instagram}}</small>
     <p>{{ something.about }}</p>    
   </article>
   </template> 

@@ -53,14 +53,14 @@ async function signOut() {
     loading.value = false
   }
 }
-const gay = ref(true)
+const love = ref(true)
 </script>
 
 <template>
   <button class="button block" @click="signOut" :disabled="loading">Sign Out</button>
 
-<allProfiles v-if="gay"/>
+<allProfiles v-if="love"/>
 <editProfile v-else/>
-<button class="buttons" @click="gay = !gay" v-if="gay">Change To Register</button>
-<button class="buttons" @click="gay = !gay" v-else>Change To Login</button>
+<button class="buttons" @click="love = !love" v-if="love">Edit Account</button>
+<button class="buttons" @click="love = !love" v-else>Go Back</button>
 </template>

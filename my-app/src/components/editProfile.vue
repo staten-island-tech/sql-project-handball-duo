@@ -1,33 +1,33 @@
 <script setup>
-import { onMounted, ref, toRefs } from 'vue'
+import { onMounted, ref } from 'vue'
 import { supabase } from '../lib/supabaseClient'
+import { useProductsStore } from '../lib/ProductStore'
+import {storeToRefs} from "pinia"
+const useProducts = useProductsStore()
 
-const props = defineProps(['session'])
-const { session } = toRefs(props)
 
-const loading = ref(true)
+const { loginData } = storeToRefs(useProducts)
+const{ cards } = storeToRefs(useProducts)
 const username = ref('')
 const about = ref('')
 const instagram = ref('')
 const image = ref('')
-const cards = ref([])
-
-async function getProfile() {
-  const { data } = await supabase.from('cards').select()
-  cards.value = data
-}
 
 onMounted(() => {
-  getProfile()
-}) 
+  useProducts.getProfile()
+})
+
 async function updateProfile() {
   try {
-    loading.value = true
-    const { user } = session.value
+    console.log(loginData.value.user.email)
 
+
+    
     const updates = {
-      id: user.id,
-      username: username.value,
+      id: cards.value.filter(function(e){
+      return e.email === useProducts.email
+    })[0].id,
+      name: username.value,
       about: about.value,
       instagram: instagram.value,
       image: image.value,
@@ -39,32 +39,31 @@ async function updateProfile() {
     if (error) throw error
   } catch (error) {
     alert(error.message)
-  } finally {
-    loading.value = false
-  }
+  } 
 }
 </script>
 
 <template>
   <form class="form-widget" @submit.prevent="updateProfile">
     <div>
-      <label for="email">Email</label>
-      <input id="email" type="text"  :value="session.user.email" disabled />
-    </div>
-    <div>
       <label for="username">Name</label>
       <input id="username" type="text" v-model="username" />
     </div>
     <div>
-      <label for="aboutMe">About Me</label>
-      <input id="aboutMe" type="url" v-model="aboutMe" />
+      <label for="image">Image</label>
+      <input id="image" type="url" v-model="image" />
+    </div>
+    <div>
+      <label for="instagram">Instagram</label>
+      <input id="instagram" type="text" v-model="instagram" />
+    </div>
+    <div>
+      <label for="about">About Me</label>
+      <input id="about" type="text" v-model="about" />
     </div>
 
     <div>
-      <input
-        type="submit"
-        class="button primary block"
-      />
+      <input type="submit" class="button primary block" />
     </div>
   </form>
 </template>

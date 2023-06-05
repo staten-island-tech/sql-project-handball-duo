@@ -4,6 +4,8 @@ import StartPage from './views/AboutView.vue'
 import BeforePage from './views/HomeView.vue'
 
 import { supabase } from '../src/lib/supabaseClient'
+import {useProductsStore} from "./lib/ProductStore"
+useProductsStore();
 
 const session = ref()
 
