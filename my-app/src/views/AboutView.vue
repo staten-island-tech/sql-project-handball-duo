@@ -64,3 +64,15 @@ const love = ref(true)
 <button class="buttons" @click="love = !love" v-if="love">Edit Account</button>
 <button class="buttons" @click="love = !love" v-else>Go Back</button>
 </template>
+
+<style>
+.buttons{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4B9CD3;
+  color: #ffffff;
+  cursor: pointer;
+}
+</style>

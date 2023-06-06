@@ -46,6 +46,7 @@ body {
 	background-color: #060606;
 }
 
+
 button,
 input,
 select,
@@ -59,69 +60,40 @@ a {
 /* End basic CSS override */
 
 .profile {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	padding: 3rem;
-	width: 90%;
-	max-width: 300px;
-	background-color: #1b2028;
-	border-radius: 16px;
-	position: relative;
-	border: 3px solid transparent;
-	background-clip: padding-box;
-	text-align: center;
-	color: #f1f3f3;
-	background-image: linear-gradient(
-		135deg,
-		rgba(#752e7c, 0.35),
-		rgba(#734a58, 0.1) 15%,
-		#1b2028 20%,
-		#1b2028 100%
-	);
-	&:after {
-		content: "";
-		display: block;
-		top: -3px;
-		left: -3px;
-		bottom: -3px;
-		right: -3px;
-		z-index: -1;
-		position: absolute;
-		border-radius: 16px;
-		background-image: linear-gradient(
-			135deg,
-			#752e7c,
-			#734a58 20%,
-			#1b2028 30%,
-			#2c333e 100%
-		);
-	}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px black;
 }
 
-.profile-image {
-	border-radius: 50%;
-	overflow: hidden;
-	width: 175px;
-	height: 175px;
-	position: relative;
-	img {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 100%;
-	}
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .profile-username {
-	font-size: 1.5rem;
-	font-weight: 600;
-	margin-top: 1.5rem;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .profile-user-handle {
-	color: #7d8396;
+  font-size: 14px;
+  color: #393030;
+  margin-bottom: 10px;
+}
+
+.profile p {
+  font-size: 16px;
+  text-align: center;
 }
 
 </style>

@@ -27,3 +27,7 @@ onMounted(() => {
     <BeforePage v-else />
   </div>
 </template> 
+
+<style >
+
+</style>

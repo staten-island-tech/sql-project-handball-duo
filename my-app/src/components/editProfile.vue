@@ -67,3 +67,12 @@ async function updateProfile() {
     </div>
   </form>
 </template>
+
+<style>
+.form-widget {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto; 
+}
+</style>
