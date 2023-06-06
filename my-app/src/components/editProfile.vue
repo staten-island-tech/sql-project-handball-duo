@@ -12,7 +12,7 @@ const username = ref('')
 const about = ref('')
 const instagram = ref('')
 const image = ref('')
-
+const updates = ref('')
 onMounted(() => {
   useProducts.getProfile()
 })
@@ -39,8 +39,12 @@ async function updateProfile() {
     if (error) throw error
   } catch (error) {
     alert(error.message)
+ 
   } 
+  return updates
+  console.log(updates.id)
 }
+
 </script>
 
 <template>
@@ -66,6 +70,18 @@ async function updateProfile() {
       <input type="submit" class="button primary block" />
     </div>
   </form>
+<div>
+  <!-- <article class="profile" v-for="something in  updates" :key="something.id" :image="something.image" :name="something.name" :instagram="something.instagram" :about="something.about" >
+    <div class="profile-image"> 
+      <img v-bind:src="something.image" alt="Person" />
+    </div>
+    <h2 class="profile-username">{{something.name}}</h2>
+    <small class="profile-user-handle">@{{something.instagram}}</small>
+    <p>{{ something.about }}</p>    
+  </article> -->
+  <h1>bi</h1>
+</div>
+
 </template>
 
 <style>
