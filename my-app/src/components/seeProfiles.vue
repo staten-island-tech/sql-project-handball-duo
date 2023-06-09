@@ -87,7 +87,7 @@ a {
 
 .profile-user-handle {
   font-size: 14px;
-  color: #393030;
+  color: black;
   margin-bottom: 10px;
 }
 

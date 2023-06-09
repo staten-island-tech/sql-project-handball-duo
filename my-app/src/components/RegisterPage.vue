@@ -10,6 +10,7 @@
             type="email"
             placeholder="Email"
             v-model="regEmail"
+            aria-label="email"
           />
         </div>
         <div> 
@@ -20,6 +21,7 @@
             type="password"
             placeholder="Password"
             v-model="regPass"
+            aria-label="password"
           />
         </div>
         <div>
@@ -29,6 +31,7 @@
             type="text"
             placeholder="Username"
             v-model="regUser"
+            aria-label="username"
           />
         </div>
         <div>
@@ -137,7 +140,7 @@ body {
   border: none;
   border-radius: 5px;
   background-color: #4B9CD3;
-  color: #ffffff;
+  color: black;
   cursor: pointer;
 }
 

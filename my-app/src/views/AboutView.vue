@@ -73,7 +73,7 @@ const love = ref(true)
   border: none;
   border-radius: 5px;
   background-color: #4B9CD3;
-  color: #ffffff;
+  color: black;
   cursor: pointer;
 }
 </style>

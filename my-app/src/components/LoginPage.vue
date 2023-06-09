@@ -3,7 +3,7 @@
     <div class="col-6 form-widget">
       <h1 class="header">Login</h1>
       <div>
-        <input class="inputField" required type="email" placeholder="Email" v-model="logEmail" />
+        <input class="inputField" required type="email" placeholder="Email" v-model="logEmail" aria-label="email"/>
       </div>
       <div>
         <input
@@ -12,6 +12,7 @@
           type="password"
           placeholder="Password"
           v-model="logPassword"
+          aria-label="password"
         />
       </div>
       <div>
@@ -75,7 +76,7 @@ body {
   border: none;
   border-radius: 5px;
   background-color: #4B9CD3;
-  color: #ffffff;
+  color: black;
   cursor: pointer;
 }
 
