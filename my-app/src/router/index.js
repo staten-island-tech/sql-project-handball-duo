@@ -18,19 +18,6 @@ const router = createRouter({
    
   ]
 })
-router.beforeEach((to, from, next)=>{
-const auth = useProductsStore();
-if(
-  to.matched.some((record)=> record.meta.requireLogin),
-auth.loggedIn === false
-  ){
-    next("/login")
-  }else{
-    next()
-  }
 
 
-  }
-  
-);
 export default router
