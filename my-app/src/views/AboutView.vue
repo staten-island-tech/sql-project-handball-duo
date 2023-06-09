@@ -59,8 +59,11 @@ const love = ref(true)
 <template>
   <button class="button block" @click="signOut" :disabled="loading">Sign Out</button>
 <RouterView/>
-<allProfiles/>
-  <RouterLink to="/Edit" class="button">Edit</RouterLink>
+
+<allProfiles v-if="love"/>
+<editProfile v-else/>
+<button class="buttons" @click="love = !love" v-if="love">Edit Account</button>
+<button class="buttons" @click="love = !love" v-else>Go Back</button>
 </template>
 
 <style>

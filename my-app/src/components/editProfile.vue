@@ -33,6 +33,7 @@ async function updateProfile() {
       image: image.value,
       updated_at: new Date(),
     }
+alert("completed")
 
     let { error } = await supabase.from('cards').upsert(updates)
 
@@ -42,7 +43,7 @@ async function updateProfile() {
  
   } 
   return updates
-  console.log(updates.id)
+  
 }
 
 </script>
@@ -54,7 +55,7 @@ async function updateProfile() {
       <input id="username" type="text" v-model="username" />
     </div>
     <div>
-      <label for="image">Image</label>
+      <label for="image">Image(URL)</label>
       <input id="image" type="url" v-model="image" />
     </div>
     <div>
@@ -70,18 +71,6 @@ async function updateProfile() {
       <input type="submit" class="button primary block" />
     </div>
   </form>
-<div>
-  <!-- <article class="profile" v-for="something in  updates" :key="something.id" :image="something.image" :name="something.name" :instagram="something.instagram" :about="something.about" >
-    <div class="profile-image"> 
-      <img v-bind:src="something.image" alt="Person" />
-    </div>
-    <h2 class="profile-username">{{something.name}}</h2>
-    <small class="profile-user-handle">@{{something.instagram}}</small>
-    <p>{{ something.about }}</p>    
-  </article> -->
-  <h1>bi</h1>
-</div>
-
 </template>
 
 <style>

@@ -12,7 +12,7 @@ const changePlease = ref(true)
 </script>
 
 <template>
-<h1>Start Up Page</h1>
+<h1>Meet People Yea Idk</h1>
   <RouterView/>
 <Login v-if="changePlease"/>
 <Register v-else />
