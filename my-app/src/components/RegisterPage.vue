@@ -40,6 +40,8 @@
             class="button block"
             :value="loadReg ? 'Registering...' : 'Register'"
             :disabled="loadReg"
+            aria-label="submit"
+            
           />
         </div>
       </div>

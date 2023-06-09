@@ -68,7 +68,7 @@ alert("completed")
     </div>
 
     <div>
-      <input type="submit" class="button primary block" />
+      <input type="submit" :value="loadLogin ? 'Logging in...' : 'Log In'" class="button primary block" />
     </div>
   </form>
 </template>
